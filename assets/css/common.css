@@ -1,0 +1,318 @@
+.blind {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  margin: -1px;
+}
+
+body {
+  background: #faf8f3;
+}
+
+.hidden{
+  overflow: hidden;
+}
+
+.link-seat {
+  display: inline-block;
+  padding: 20px 30px;
+  border: solid 1px #FFFCF1;
+  border-radius: 10px;
+  font-size: 21px;
+}
+
+.link-seat:hover {
+  color: #0E0E0E;
+  background: #FFFCF1;
+  transition: all 0.4s;
+}
+
+/* 텍스트 올라오는 효과 */
+.parent {
+  display: block;
+  overflow: hidden;
+}
+
+.parent .child {
+  display: block;
+}
+
+.text-wrap {
+  position: relative;
+  padding: 110px 50px;
+}
+
+.text-wrap .thumb-box {
+  position: relative;
+  font-size: clamp(20px, 2.0833vw, 40px);
+  line-height: 1.14;
+}
+
+.text-wrap .thumb-box .line {
+  position: absolute;
+  bottom: -15%;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: #000;
+}
+
+.text-wrap .thumb-box .title-text {
+  margin-bottom: 16px;
+}
+
+.text-wrap .text-content {
+  font-size: clamp(18px, 2.5vw, 48px);
+  line-height: 1.2;
+  letter-spacing: -1px;
+  margin-top: 16px;
+}
+
+.text-wrap .text-content .parent {
+  padding: 10px 0;
+}
+
+.text-wrap .text-content strong {
+  font-weight: 700;
+}
+
+/* icon */
+.text-wrap .icon-box .cont {
+  position: absolute;
+}
+
+.text-wrap .icon-box .icon1 {
+  top: 60px;
+  right: 50px;
+  width: 4vw;
+  height: 4vw;
+}
+
+.text-wrap .icon-box .icon2 {
+  bottom: -2vw;
+  left: 6vw;
+  width: 5vw;
+  height: 5vw;
+}
+
+.text-wrap .icon-box .icon3 {
+  bottom: 2.5vw;
+  right: 6vw;
+  width: 10vw;
+  height: 10vw;
+}
+
+/* stroke */
+.link-page {
+  line-height: 1;
+}
+
+.link-page .stroke {
+  display: inline-block;
+  position: relative;
+  text-shadow:
+    -1.5px -1.5px 0 #fff,
+    1.5px -1.5px 0 #fff,
+    -1.5px 1.5px 0 #fff,
+    1.5px 1.5px 0 #fff;
+  overflow: hidden;
+}
+
+.link-page .stroke>span {
+  position: relative;
+  z-index: 2;
+}
+
+.link-page .stroke::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: #000;
+  transform: scaleX(1);
+  transform-origin: right;
+  /* 기준지점 */
+  transition: 1s .1s;
+}
+
+.link-page .stroke::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: #000;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: 1s;
+}
+
+.link-page .stroke:hover::before {
+  transform: scaleX(0);
+  transition: 1s;
+}
+
+.link-page .stroke:hover::after {
+  transform: scaleX(1);
+  transition: 1s .1s;
+  /* 시차가 생겨서 살짝 빔 */
+}
+
+.link-page .stroke .child {
+  display: block;
+}
+
+
+.content {
+  padding: 172px 52px;
+  text-align: center;
+}
+
+.content .top-text {
+  display: flex;
+  justify-content: center;
+
+}
+
+.content .top-text .desc {
+  font-size: 21px;
+}
+
+.content .top-text .arrow {
+  display: inline-block;
+  transform: rotate(-90deg);
+  font-size: 21px;
+}
+
+.content .link-page {
+  display: block;
+  font-size: clamp(28px, 4.2708vw, 82px);
+  letter-spacing: -0.93px;
+}
+
+/* hover */
+.link-all {
+  display: flex;
+  position: absolute;
+  align-items: center;
+  bottom: 100%;
+  right: 0;
+  margin-bottom: 17px;
+  height: 48px;
+}
+
+.link-all .text::before {
+  display: inline-block;
+  position: absolute;
+  bottom: 10%;
+  left: 0;
+  content: '';
+  width: 100%;
+  height: 1px;
+  background: #000;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.5s;
+}
+
+.link-all:hover .text::before {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.link-all .arrow {
+  display: inline-block;
+  font-size: 32px;
+  margin-right: 8px;
+  transform: scaleX(-1);
+}
+
+.link-all .text {
+  font-size: 32px;
+  letter-spacing: -0.72px;
+}
+
+/* 작은 pc */
+@media (max-width:1230px) {
+  .text-wrap {
+    padding: 90px 32px;
+  }
+
+  .content {
+    padding: 130px 32px;
+  }
+
+  .link-all .arrow {
+    font-size: 25px;
+  }
+
+  .link-all .text {
+    font-size: 25px;
+  }
+
+}
+
+/* 태블릿 */
+@media (max-width:1024px) {
+  .link-seat {
+    padding: 15px 20px;
+    font-size: 18px;
+  }
+
+  .text-wrap {
+    padding: 70px 28px;
+  }
+
+  .text-wrap .icon-box .icon2 {
+    bottom: 3vw;
+  }
+
+  .content {
+    padding: 100px 28px;
+  }
+
+}
+
+@media (max-width:767px) {
+  .link-seat {
+    padding: 10px 20px;
+    border-radius: 50px;
+  }
+
+  .text-wrap {
+    padding: 50px 15px;
+  }
+
+  .text-wrap .icon-box .icon1 {
+    top: 55px;
+  }
+
+  .content {
+    padding: 80px 15px;
+  }
+
+  .content .top-text .desc {
+    font-size: 16px;
+  }
+
+  .sc-service .content .models {
+    font-size: 10px;
+  }
+
+  .link-page .stroke::before {
+    height: 1px;
+  }
+
+  .link-all .arrow {
+    font-size: 18px;
+  }
+
+  .link-all .text {
+    font-size: 18px;
+  }
+}
